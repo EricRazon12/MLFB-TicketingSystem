@@ -23,7 +23,7 @@ app.controller("team-controller", function($scope, Page, teamfactory, Upload, $t
                 $scope.team = data;
                 $(".disp1").attr("src", $scope.team.imgurl);
                 $(".disp2").attr("src", $scope.team.stadium.image);
-                console.log(data);
+                //console.log(data);
             })
             .error(function (error, status) {
                 console.log(error);
@@ -102,5 +102,19 @@ app.controller("team-controller", function($scope, Page, teamfactory, Upload, $t
             alert('abort');
         }
     }
+    
+   $(document).on("change", "input[type=file]#upload1", function(){
+        setTimeout(function(){
+             $("img.disp1").attr("src", $("img.disp1a").attr("src"));
+             //$scope.team.imgurl = "show";
+        },50)
+    })
+    
+    $(document).on("change", "input[type=file]#upload2", function(){
+        setTimeout(function(){
+             $("img.disp2").attr("src", $("img.disp2a").attr("src"));
+             console.log($scope.team.stadium.image);
+        },50)
+    })
    
 });
