@@ -87,13 +87,13 @@
                                 <div class="fileUpload btn btn-primary pull-right">
                                     <span>Upload</span>
                                     <input type="file" id="upload2" ngf-select ng-model="team.stadium.image" name="upd2"    
-                                    accept="image/*" ngf-max-size="2MB"
+                                    accept="image/*" ngf-max-size="2MB" ng-required="_id =='0'"
                                     ngf-model-invalid="errorFile" class="upload">
                                 </div>
                             </div>
 
                             <div class="form-group pull-left">
-                                <input type="submit" ng-disabled="!myForm.$valid" ng-click="action=='add'?AddTeam(team.logo, team.stadium.image):UpdateTeam(team.logo, team.stadium.image)" name="add-team" value="{{_id=='0'?'Add':'Update'}} Team" class="btn btn-info pull-right"/>
+                                <input type="submit" ng-disabled="!myForm.$valid" ng-click="_id=='0'?AddTeam(team.imgurl, team.stadium.image):UpdateTeam(team.logo, team.stadium.image)" name="add-team" value="{{_id=='0'?'Add':'Update'}} Team" class="btn btn-info pull-right"/>
                                 <!--<input type="submit" ng-disabled="!myForm.$valid" ng-show="action=='update'" ng-click="" name="add-team" value="Update Team" class="btn btn-info pull-right"/>-->
                             </div>
 

@@ -80,7 +80,7 @@ app.controller("team-controller", function($scope, Page, teamfactory, Upload, $t
         }).then(function (response) {
             if(response.status == 200){
                 $timeout(function () {
-                    $window.location.href = '/account/dashboard/';
+                   $window.location.href = '/account/dashboard/';
                 });
             }else{
                 alert('error');
@@ -106,7 +106,6 @@ app.controller("team-controller", function($scope, Page, teamfactory, Upload, $t
    $(document).on("change", "input[type=file]#upload1", function(){
         setTimeout(function(){
              $("img.disp1").attr("src", $("img.disp1a").attr("src"));
-             //$scope.team.imgurl = "show";
         },50)
     })
     

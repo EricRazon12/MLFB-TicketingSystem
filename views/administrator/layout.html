@@ -52,11 +52,11 @@
                     </button>
                     <a class="navbar-brand" href="#">TICKETING SYSTEM</a>
                 </div>
-                <div id="navbar" class="collapse navbar-collapse navbar-right">
+                <div id="navbar" class="collapse navbar-collapse navbar-right" ng-controller="account-controller">
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="/account/dashboard/">Teams</a></li>
                         <li><a href="/account/dashboard/schedules">Schedules</a></li>
-                        <li><a href="#">Log Out</a></li>
+                        <li><a href="#" ng-click="logout()">Log Out</a></li>
                     </ul>
                 </div> <!--/.nav-collapse -->
             </div>
@@ -113,9 +113,11 @@
     <script type="text/javascript" src="/javascripts/angular/controllers/schedules-controller.js"></script>
     <script type="text/javascript" src="/javascripts/angular/controllers/faq-controller.js"></script>
     <script type="text/javascript" src="/javascripts/angular/controllers/stadium-controller.js"></script>
+    <script type="text/javascript" src="/javascripts/angular/controllers/account-controller.js"></script>
     <script type="text/javascript" src="/javascripts/angular/factories/ticketing-factory.js"></script>
     <script type="text/javascript" src="/javascripts/angular/services/main.js"></script>
     <script type="text/javascript" src="/javascripts/angular/services/teams.js"></script>
+    <script type="text/javascript" src="/javascripts/angular/services/account.js"></script>
     <script type="text/javascript" src="/javascripts/angular/filters/ticketing-filters.js"></script>
 
     

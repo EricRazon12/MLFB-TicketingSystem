@@ -3,6 +3,7 @@ var router = express.Router();
 
 var config = require('../api_config');
 var db = config.getMongoDB;
+
 router.get('/login', function (req, res, next) {
      if(!req.session.username && !req.session.password){
         res.sendFile(config.loc + '/views/account/login.html');
@@ -10,6 +11,8 @@ router.get('/login', function (req, res, next) {
         res.redirect('/account/dashboard/');
     }
 });
+
+
 
 router.get('/*', function (req, res) {
     if(!req.session.username && !req.session.password){
@@ -39,6 +42,11 @@ router.post('/login', function (req, res, next) {
             // login page with warning!
         }
     });
+});
+
+router.post('/logout', function(req, res){
+  req.session.destroy();
+  res.status(200).send('ok'); 
 });
 
 router.get('/register', function (req, res, next) {

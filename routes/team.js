@@ -46,37 +46,6 @@ router.get('/stadiums', function (req, res, next) {
     });    
 });
 
-router.get('/:_id', function (req, res, next) {
-    var _id = new mongo.ObjectID(req.params._id);
-    if(req.query.isadmin == 'true'){
-        if(req.session.username && req.session.password){
-            db.collection('teams').find({'_id': _id}).toArray(function(err, result) {
-                if (err){ 
-                    res.status(500).send(err.message);
-                    return;
-                }
-                if(result && result.length > 0){
-                    console.log(result);
-                    res.status(200).send(result[0]);
-                }
-            });   
-        }else{
-            res.status(404).send('Unauthorized');
-        }
-    }else{
-        db.collection('teams').find({'_id': _id}).toArray(function(err, result) {
-                if (err){ 
-                    res.status(500).send(err.message);
-                    return;
-                }
-                if(result && result.length > 0){
-                    console.log(result);
-                    res.status(200).send(result[0]);
-                }
-            });
-    } 
-});
-
 
 
 //*** /api/teams/add
@@ -132,7 +101,7 @@ router.post('/add', function (req, res, next) {
 });
 
 
-//*** /api/teams/add
+//*** /api/teams/update
 router.post('/update', function (req, res, next) {
     var loc = config.loc;
     var fstream;
@@ -183,9 +152,7 @@ router.post('/update', function (req, res, next) {
             });
         })
     });
-    
-
-            
+         
  if(!_hasFile) {
             db.collection('teams').update({'_id': _id}, {$set: {name: req.query.name, nickname: req.query.nickname, 
                                                                  "stadium.name": req.query.sname,
@@ -204,6 +171,7 @@ router.post('/update', function (req, res, next) {
     
 });
 
+//*** /api/teams/delete
 router.delete('/delete', function (req, res, next) {
     var _id = new mongo.ObjectID(req.query._id);
     db.collection('teams').remove({'_id': _id}, function (err, result) {
@@ -212,5 +180,39 @@ router.delete('/delete', function (req, res, next) {
         res.status(200).send(result);
     });   
 });
+
+//*** /api/teams/[parameter]
+router.get('/:_id', function (req, res, next) {
+    var _id = new mongo.ObjectID(req.params._id);
+    if(req.query.isadmin == 'true'){
+        if(req.session.username && req.session.password){
+            db.collection('teams').find({'_id': _id}).toArray(function(err, result) {
+                if (err){ 
+                    res.status(500).send(err.message);
+                    return;
+                }
+                if(result && result.length > 0){
+                    console.log(result);
+                    res.status(200).send(result[0]);
+                }
+            });   
+        }else{
+            res.status(404).send('Unauthorized');
+        }
+    }else{
+        db.collection('teams').find({'_id': _id}).toArray(function(err, result) {
+                if (err){ 
+                    res.status(500).send(err.message);
+                    return;
+                }
+                if(result && result.length > 0){
+                    console.log(result);
+                    res.status(200).send(result[0]);
+                }
+            });
+    } 
+});
+
+
 
 module.exports = router;
