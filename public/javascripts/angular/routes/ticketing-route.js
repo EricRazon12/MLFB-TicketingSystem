@@ -19,7 +19,7 @@ app.config(function($routeProvider, $locationProvider){
 	//.when('/account/dashboard/teams/:action', {templateUrl: '/administrator/partials/add-team.html', controller: 'team-controller'})
     .when('/account/dashboard/schedules', { templateUrl: '/administrator/partials/view-all-schedule.html' })
 	.when('/account/dashboard/teams/view/:_id/:isadmin', {templateUrl: '/administrator/partials/view-team.html', controller: 'team-controller'})
-	//.otherwise({ redirectTo: '/' })
+	.otherwise({ redirectTo: '/' })
 	
 	// enable html5Mode for pushstate ('#'-less URLs)
 	$locationProvider.html5Mode({
