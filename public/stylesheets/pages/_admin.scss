@@ -204,14 +204,14 @@ header .ts-top-bar{
 // View All Team Page
 
 .btn , input, input[type="button"], input[type="email"], input[type="password"], input[type="text"]{
-    border-radius:0px;
+    border-radius:0;
 }
 
 
 
 .adminWrapper #create-team .container .row .col-md-12 {
 
-     padding-right:0px;
+     padding-right:0;
 
     .add-team{
         color: #fff;
@@ -319,9 +319,6 @@ header .ts-top-bar{
              text-align:center;
              line-height:25px;
 
-             div:last-type-of{
-                 border
-             }
 
              .team , .vs , .numerical , .descriptive,
              .stadium-name , .home-court, a{
@@ -385,4 +382,124 @@ header .ts-top-bar{
     }
 }
  
+
+
+
+
+//Responsive Layout for Entire Administrator Area
+
+/** Small Devices **/
+@media only screen and (min-width:480px) and (max-width:767px){
+
+    //Login Page
+
+}
+
+
+@media only screen and (max-width:767px){
+
+    //Login Page
+
+    footer .ts-sponsor .list-inline li{
+        width:100%;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    // Create and View Team Template
+    .ts-heading:before{
+        content: '';
+        border-color: initial;
+        border-width: initial;
+    }
+
+    .container .row .adminWrapper #create-team .header-wrapper{
+        .ts-heading{
+            width:100%;
+            border-bottom: initial;
+            
+        } 
+        .ts-line{
+            border-top: initial;
+        }
+    }
     
+
+    .container .row .adminWrapper #create-team .container .row  {
+       .wrapper_title{
+           display:none;
+       }
+       .wrapper_data .col-md-2{
+           line-height:35px;
+           .wrapper_result{
+               margin-top:5px;
+               line-height:45px;
+               
+               span{
+                   display:block;
+               }
+           } 
+       }
+     
+    }
+
+    //Create Team
+    .holder-content .content .container .row .adminWrapper #create-team form .container
+    .row {
+            .col-md-offset-2{
+                 display:none;
+         }
+    }
+}
+
+@media only screen and (min-width:768px) and (max-width:991px){
+
+    //Login Page
+
+    //Create and View Design Template
+
+    .holder-content .content .container{
+        margin-left: initial;
+        margin-right: initial;
+        padding-left: initial;
+        padding-right: initial;
+        
+
+        .row .adminWrapper #create-team .container .row .wrapper_data .col-sm-2{
+            &:first-child{
+                left:-15px;
+            }
+            img{
+                width:100%;
+            }
+            .wrapper_result a.btn, 
+            .wrapper_data_view_schedule span a.btn,
+            .wrapper_result_action span .btn{
+                font-size:9px;
+            }
+
+        }
+    }
+
+
+    
+
+   
+} 
+
+
+@media only screen and (min-width:992px) and (max-width:1199px){
+
+    //Login Page
+}
+
+@media only screen and (min-width:1200px) and (max-width:1600px){
+
+    //Login Page
+}
+
+
+@media only screen and (min-width:1601px){
+
+    //Login Page
+}

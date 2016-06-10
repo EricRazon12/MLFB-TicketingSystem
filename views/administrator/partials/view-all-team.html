@@ -1,7 +1,7 @@
 ﻿<div class="container">
     <div class="row">
-<div class="adminWrapper">
-            
+        <div class="adminWrapper">
+
 
             <div class="col-md-12" id="create-team">
 
@@ -19,16 +19,15 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-md-12 wrapper_title">
-                            <div class="col-md-2"><span>TEAM LOGO</span></div>
-                            <div class="col-md-2"><span>TEAM</span></div>
-                            <div class="col-md-2"><span>CITY</span></div>
-                            <div class="col-md-2"><span>STADIUM</span></div>
-                            <div class="col-md-2"><span>SCHEDULES</span></div>
-                            <div class="col-md-2"><span>ACTION</span></div>
+                        <div class="col-md-12 col-sm-12 wrapper_title">
+                            <div class="col-md-2 col-sm-2"><span>TEAM LOGO</span></div>
+                            <div class="col-md-2 col-sm-2"><span>TEAM</span></div>
+                            <div class="col-md-2 col-sm-2"><span>CITY</span></div>
+                            <div class="col-md-2 col-sm-2"><span>STADIUM</span></div>
+                            <div class="col-md-2 col-sm-2"><span>SCHEDULES</span></div>
+                            <div class="col-md-2 col-sm-2"><span>ACTION</span></div>
                         </div>
                     </div>
-
                     <div class="text-center" ng-show="!teams"><i class="fa fa-spinner fa-pulse"></i></div>
                     <div class="row" ng-repeat="team in teams">
                         <div class="col-md-12 wrapper_data">
@@ -36,29 +35,30 @@
                             <div class="col-md-2"><span>{{team.nickname}}</span></div>
                             <div class="col-md-2"><span>{{team.name}}</span></div>
                             <div class="col-md-2">
+
+
                                 <div class="wrapper_result">
                                     <span>{{team.stadium.name}}</span>
                                     <a href="/account/dashboard/teams/view/{{team._id}}/true" class="btn btn-primary">View Stadium</a>
                                 </div>
                             </div>
-                            <div class="col-md-2">
+                            <div class="col-md-2 col-sm-2">
                                 <div class="wrapper_data_view_schedule">
                                     <span><a href="#" class="btn btn-primary">View Schedule</a></span>
                                 </div>
                             </div>
-                            <div class="col-md-2">
+                            <div class="col-md-2 col-sm-2">
                                 <div class="wrapper_result_action">
-                                    <span><a href="/account/dashboard/teams/{{team._id}}/true" class="btn btn-primary edit-button" >edit</a></span>
+                                    <span><a href="/account/dashboard/teams/{{team._id}}/true" class="btn btn-primary edit-button">edit</a></span>
                                     <span><a href="#" ng-click="RemoveTeam(team._id)" class="btn btn-primary delete-button">delete</a></span>
                                 </div>
                             </div>
                         </div>
                     </div>
-                   
 
                 </div>
 
             </div>
         </div>
-                    </div>
-        </div>
+    </div>
+</div>

@@ -5,7 +5,7 @@ AppName.Modules.ThemeModule = (function () {
     //////////////////////
     // Private Methods //
     ////////////////////
-    var  _bindNewsletter = function () {
+    var _bindNewsletter = function () {
         ajaxMailChimpForm($("#subscribe-form"), $("#subscribe-result"));
 
         function ajaxMailChimpForm($form, $resultElement) {
@@ -79,12 +79,17 @@ AppName.Modules.ThemeModule = (function () {
         });
     }
 
+    var _bindPriceFilter = function () {
+
+
+    }
     /////////////////////
     // Public Methods //
     ///////////////////
     var init = function () {
         _bindNewsletter();
         _bindNavActive();
+        _bindPriceFilter();
     };
 
     return {

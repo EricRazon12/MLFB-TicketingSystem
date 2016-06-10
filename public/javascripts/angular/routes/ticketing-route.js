@@ -7,7 +7,7 @@ app.config(function($routeProvider, $locationProvider){
 	.when('/teams', {templateUrl: '/client/partials/teams.html', controller: 'team-controller'})
 	.when('/game-schedules', {templateUrl: '/client/partials/game-schedules.html', controller: 'schedules-controller'})
 	.when('/venues', {templateUrl: '/client/partials/venues.html', controller: 'stadium-controller'})
-	//.when('/venues/stadium', { templateUrl: '/client/partials/stadium.html', controller: 'stadium-controller' })
+	.when('/venues/stadium', { templateUrl: '/client/partials/stadium.html', controller: 'stadium-controller' })
 	.when('/faq', {templateUrl: '/client/partials/faq.html', controller: 'faq-controller'})
 	.when('/teams/view/:_id/:isadmin', {templateUrl: '/administrator/partials/view-team.html', controller: 'team-controller'})
 
