@@ -89,7 +89,7 @@ app.controller("team-controller", function($scope, Page, teamfactory, Upload, $t
     }
     
     $scope.RemoveTeam = function(_id) {
-        if(confirm("Do you")){
+        if(confirm("Do you really want to delete this team?")){
             teamfactory.deleteTeam(_id)
                 .success(function (data) {
                     $window.location.href = '/account/dashboard/';
@@ -98,10 +98,12 @@ app.controller("team-controller", function($scope, Page, teamfactory, Upload, $t
 
                 });
             
-        }else{
-            alert('abort');
         }
     }
+    
+   $scope.GoBack = function(){
+       $window.history.back();
+   }
     
    $(document).on("change", "input[type=file]#upload1", function(){
         setTimeout(function(){

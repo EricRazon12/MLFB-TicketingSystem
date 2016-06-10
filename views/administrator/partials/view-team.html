@@ -11,7 +11,7 @@
                 </div>
 
                 <div class="text-center" ng-show="!team"><i class="fa fa-spinner fa-pulse"></i></div>
-                <div class="col-md-12" id="wrapper-data" ng-init="getOneTeam()">
+                <div class="col-md-12" ng-show="team" id="wrapper-data" ng-init="getOneTeam()">
                     <div class="row">
                         <div class="col-md-3">
                             <div class="logo_wrapper">
@@ -61,8 +61,8 @@
                             </div>
                             <div class="clear"></div>
                         </div>
-                        <div class="col-md-3 wrapper-goto-list pull-right">
-                            <a href="{{isadmin?'/account/dashboard/':'/teams'}}" class="btn btn-primary">Go To Team List</a>
+                        <div class="col-md-3 wrapper-goto-list pull-right" ng-click="GoBack()">
+                            <a href="#" class="btn btn-primary">Go To Team List</a>
                         </div>
 
                         <div class="clear"></div>
