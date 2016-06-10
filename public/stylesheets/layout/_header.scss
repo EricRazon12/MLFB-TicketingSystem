@@ -1,0 +1,42 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the header of the site/application.
+// -----------------------------------------------------------------------------
+@import "../utils/variables";
+
+header {
+    .ts-top-bar {
+        padding: 10px 0;
+
+        .pull-left {
+            img {
+                width: 150px;
+            }
+        }
+
+        .pull-right {
+            ul {
+                li {
+                    margin-top: 13px;
+                    margin-left: 35px;
+
+                    a {
+                    }
+                }
+            }
+        }
+    }
+
+
+    .navbar {
+        margin-bottom: 0;
+
+        &-inverse {
+            background-color: $brand-color;
+
+            .navbar-brand {
+                color: $text-color-white;
+                font-size: 25px;
+            }
+        }
+    }
+}

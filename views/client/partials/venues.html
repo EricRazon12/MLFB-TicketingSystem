@@ -1,0 +1,32 @@
+<section class="content venues">
+        <div class="container">
+            <h3 class="ts-heading">MLFB FOOTBALL STADIUMS</h3>
+            <hr class="ts-line" />
+
+            <div class="row">
+                    <div class="col-md-9 ts-main" ng-controller="team-controller" ng-init="getStadiums()" >
+                        <div class="row ts-venue" ng-repeat="stadium in stadiums">
+                            <div class="col-md-6">
+                                <div class="ts-venue-handler">
+                                    <img ng-src="{{stadium.image}}" class="img-responsive" alt="" />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="ts-venue-info">
+                                    <h5>{{stadium.name}}</h5>
+                                    <ul class="list-unstyled">
+                                        <li><b>Home Team:</b><span>{{stadium.team}}</span></li>
+                                        <li><b>Location:</b><span>{{stadium.location}}</span></li>
+                                        <li><b>Capacity:</b><span>{{stadium.capacity}}</span></li>
+                                    </ul>
+                                    <a href="#" class="ts-btn">View Seats</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <div class="col-md-3" ng-include="'/client/partials/sidebar.html'">
+                </div>
+            </div>
+
+        </div>
+    </section>

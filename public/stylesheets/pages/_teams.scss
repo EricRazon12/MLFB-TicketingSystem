@@ -1,0 +1,35 @@
+// -----------------------------------------------------------------------------
+// This file contains styles that are specific to the home page.
+// -----------------------------------------------------------------------------
+
+@import "../utils/variables";
+
+.teams {
+    .ts-team-logo {
+        padding: 100px 0;
+
+        .row {
+            margin: 0;
+
+            .col-md-3 {
+                border-right: 1px solid #959595;
+
+                &:nth-child(n+5) {
+                    border-top: 1px solid #959595;
+                }
+
+                &:nth-child(4){
+                    border-right: none;
+                }
+                &:last-child {
+                    border-right: none;
+                }
+
+                h5 {
+                    text-align: center;
+                    text-transform: uppercase;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,80 @@
+// -----------------------------------------------------------------------------
+// This file contains styles that are specific to the home page.
+// -----------------------------------------------------------------------------
+
+@import "../utils/variables";
+
+.ts-venue {
+    &-handler {
+        padding: 25px;
+
+        img {
+            border: 1px solid;
+        }
+    }
+
+    &-info {
+        padding-top: 50px;
+
+        h5 {
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        ul {
+            li {
+                margin-bottom: 5px;
+            }
+        }
+
+        a {
+            display: inline-block;
+            width: 50%;
+            text-align: center;
+            margin-top: 25px;
+        }
+    }
+}
+
+.ts-stadium {
+    &-head {
+        background: $brand-color;
+        color: #fff;
+        margin: 0;
+        padding: 15px 0;
+
+        p {
+            margin: 0;
+            text-transform: uppercase;
+        }
+    }
+
+    &-handler {
+    }
+
+    table {
+        thead {
+            tr {
+                td {
+                    text-transform:uppercase;
+                    color:#808080;
+                    text-align:center;
+                }
+            }
+        }
+
+        tbody {
+            tr {
+                padding-bottom:25px;
+                td {
+                        vertical-align: middle;
+                        font-weight:700;
+                        text-align:center;
+                    a {
+                        display: inline-block;
+                    }
+                }
+            }
+        }
+    }
+}

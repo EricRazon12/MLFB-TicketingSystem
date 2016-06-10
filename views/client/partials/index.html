@@ -1,0 +1,112 @@
+<section class="ts-search text-center">
+        <div class="container">
+            <h1 class="">TAGLINE HERE!</h1>
+            <div class="form-group form-inline">
+                <input type="search" placeholder="SEARCH BY TEAM, VENUE, SCHEDULE" id="txt-search" class="form-control" />
+                <input type="submit" value="SEARCH" id="btn-search" class="ts-btn" />
+            </div>
+        </div>
+    </section>
+    <section class="content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h3 class="ts-heading">UPCOMING GAME</h3>
+                </div>
+                <div class="col-md-8">
+                    <div class="ts-promo">
+                        <h2 class="pull-left">BECOME A MEMBER AND GET PROMOS!</h2>
+                        <a href="#signup" class="ts-btn pull-right">SIGN UP</a>
+                    </div>
+                </div>
+            </div>
+            <hr class="ts-line" />
+
+            <div class="row">
+                <div class="col-md-9 ts-main">
+                    <div class="row ts-game" ng-controller="schedules-controller">
+                        <div class="col-md-5">
+                            <div class="ts-game-ban">
+                                <div class="ts-game-ban-team-1">
+                                    <img src="/assets/images/OregonCrash_schedHome.png" alt=""/>
+                                </div>
+                                <div class="ts-game-ban-vs">
+                                    <p>VS</p>
+                                </div>
+                                <div class="ts-game-ban-team-2">
+                                    <img src="/assets/images/florida_schedHome.png" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+                            <div class="ts-game-block">
+                                <h2>2016 MLFB REGULAR SEASON</h2>
+                                <div class="ts-game-match">
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            <div class="media">
+                                                <a class="media-left" href="#">
+                                                    <img class="media-object" src="/assets/images/small-oregon.png" alt=""/>
+                                                </a>
+                                                <div class="media-body">
+                                                    <h4 class="media-heading">OREGON</h4>
+                                                    <p>CRASH</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <p class="ts-game-vs">VS</p>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <div class="media">
+                                                <div class="media-body">
+                                                    <h4 class="media-heading">FLORIDA</h4>
+                                                    <p>FUSION</p>
+                                                </div>
+                                                <a class="media-right" href="#">
+                                                    <img class="media-object" src="/assets/images/small-florida.png" alt="Generic placeholder image">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ts-game-sched">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <ul class="list-unstyled">
+                                                <li class="ts-game-date"><b>Date: </b><span>June 01, 2016</span></li>
+                                                <li class="ts-game-time"><b>Time: </b><span>08:00</span></li>
+                                                <li class="ts-game-venue"><b>Venue: </b><span>WANTLAND STADIUM</span></li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <a href="#" class="ts-btn pull-right">BUY TICKETS</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ts-teams">
+                        <h3 class="ts-heading">2016 MLFB TEAMS</h3>
+                        <hr class="ts-line" />
+
+                        <div class="ts-team-logo" ng-controller="team-controller" ng-init="getTeams()">
+                            <div class="row">
+                                <div class="text-center" ng-show="!teams"><i class="fa fa-spinner fa-pulse"></i></div>
+                                <div class="col-md-3" ng-repeat="team in teams" ng-show="teams">
+                                    <a href="#"><img src="{{team.imgurl}}" class="img-responsive" /></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3" ng-include="'/client/partials/sidebar.html'">
+                </div>
+                
+            </div>
+
+        </div>
+    </section>

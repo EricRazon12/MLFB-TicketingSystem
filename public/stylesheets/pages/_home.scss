@@ -1,0 +1,115 @@
+// -----------------------------------------------------------------------------
+// This file contains styles that are specific to the home page.
+// -----------------------------------------------------------------------------
+
+@import "../utils/variables";
+
+section {
+    &.ts-search {
+        background: url('../assets/images/search-bg.jpg') no-repeat center center;
+        background-size: cover;
+        padding: 50px;
+
+        h1 {
+            color: $text-color-white;
+            font-size: 70px;
+            font-weight: 700;
+            margin-bottom: 60px;
+        }
+
+        .form-group {
+            input {
+                &#txt-search {
+                    border-radius: 0;
+                    width: 40%;
+                    height: 38px;
+                    margin-top: -1px;
+                }
+
+                &#btn-search {
+                    margin: 0;
+                    border: none;
+                    padding: 10px 15px;
+                    height: 38px;
+                    margin-left: -5px;
+                }
+            }
+        }
+    }
+
+    &.content {
+        padding: 50px 0;
+
+        .row {
+            .col-md-8 {
+                .ts-promo {
+                    h2 {
+                        margin: 0;
+                    }
+
+                    a {
+                        padding: 10px 20px;
+                    }
+                }
+            }
+
+            .col-md-9 {
+                .ts-game {
+                    margin-bottom: 25px;
+
+                    &-block {
+                        .media-body {
+                            padding-top: 15px;
+                        }
+
+                        .media-object {
+                            width: 65px;
+                        }
+                    }
+
+                    &-match {
+                        margin: 30px 0;
+                    }
+
+                    &-sched {
+                    }
+
+                    &-vs {
+                        text-align: center;
+                        font-size: 30px;
+                        font-weight: 700;
+                        padding-top: 10px;
+                    }
+
+                    &-ban {
+                        background: url('/assets/images/slider-bg.jpg') no-repeat center center;
+                        background-size: cover;
+                        position: relative;
+                        display: table;
+                        width: 100%;
+                        padding: 10px;
+
+                        &-team-1 {
+                        }
+
+                        &-vs {
+                            p {
+                                color: #fff;
+                                font-weight: 700;
+                                text-align: center;
+                                margin: 0;
+                                font-size: 30px;
+                                line-height: 0;
+                                margin-bottom: 20px;
+                            }
+                        }
+
+                        &-team-2 {
+                            float: right;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

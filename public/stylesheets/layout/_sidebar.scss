@@ -1,0 +1,43 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the header of the site/application.
+// -----------------------------------------------------------------------------
+@import "../utils/variables";
+
+.ts-sb {
+    padding: 25px 0 25px 0;
+
+    a {
+        width: 100%;
+        display: block;
+        text-align: center;
+    }
+
+    &-sched {
+        margin-bottom: 25px;
+    }
+
+    &-newsletter {
+        margin-bottom: 25px;
+
+        .ts-email {
+            border-radius: 0;
+            background: #eae8e8;
+            border-width: 0;
+            box-shadow: none;
+            margin-bottom: 10px;
+            height: 40px;
+        }
+
+        .ts-submit {
+            border: none;
+            width: 100%;
+        }
+    }
+
+    &-promo-banner {
+        margin-bottom: 25px;
+    }
+
+    &-help {
+    }
+}

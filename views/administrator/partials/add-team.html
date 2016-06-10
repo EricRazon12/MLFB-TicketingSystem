@@ -1,0 +1,125 @@
+﻿<div class="container">
+    <div class="row">
+            <div class="adminWrapper">
+                 
+
+            <div class="col-md-12" id="create-team">
+
+                <div class="header-wrapper">
+                    <h3 class="ts-heading">{{_id=='0'?'add':'update' | uppercase}} TEAM</h3>
+                    <a href="/account/dashboard/" class="pull-right"><i class="fa fa-chevron-left"></i> GO BACK</a>
+                    <div class="clear"></div>
+                    <hr class="ts-line">
+                </div>
+            <form name="myForm">
+                <div class="container" ng-init="getOneTeam()">
+                    <div class="row">
+                        <div class="label-type col-md-3 col-md-offset-2">
+                            <div class="form-group pull-right">
+                                <label class="form-label pull-right">City:</label>
+                            </div>
+                            <div class="form-group pull-right">
+                                <label class="form-label pull-right">Team Name:</label>
+                            </div>
+                            <div class="form-group pull-right">
+                                <label class="form-label pull-right">Logo:</label>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+
+                        <div class="label-type col-md-3">
+                            <div class="form-group pull-left">
+                                <input type="text" class="form-control" name="city" ng-model="team.name" placeholder="Enter city here..." required />
+                            </div>
+                            <div class="form-group pull-left">
+                                <input type="text" class="form-control" name="team_name" ng-model="team.nickname" placeholder="Enter team name here..." required />
+                            </div>
+                            <div class="form-group pull-left">
+                                <div id="imageLogoPreview" style="line-height:0;" ng-show="team.imgurl">
+                                    <img class="disp1" style="width: 100%; height: 100%;"> 
+                                    <img style="display:none;" ngf-thumbnail="team.logo" class="thumb disp1a"> 
+                                    <!--<button ng-click="picFile = null" ng-show="picFile">Remove</button>-->
+                                </div>
+                                <div id="logoUpload" class="fileUpload btn btn-primary">
+                                    <span>Upload</span>
+                                    
+                                    <input type="file" id="upload1" ngf-select ng-model="team.logo" name="upd"    
+                                        accept="image/*" ngf-max-size="2MB" ng-required="_id =='0'"
+                                        ngf-model-invalid="errorFile" class="upload" >
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="label-type col-md-3 col-md-offset-2">
+                            <div class="form-group pull-right">
+                                <label class="form-label pull-right">Stadium Name:</label>
+                            </div>
+                            <div class="form-group pull-right">
+                                <label class="form-label pull-right">Location:</label>
+                            </div>
+                            <div class="form-group pull-right">
+                                <label class="form-label pull-right">Capacity:</label>
+                            </div>
+                            <div class="form-group pull-right">
+                                <label class="form-label pull-right">Floor Plan:</label>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+
+                        <div class="label-type col-md-3">
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="stadium" ng-model="team.stadium.name" placeholder="Enter stadium here..." required />
+                            </div>
+                            <div class="form-group pull-left">
+                                <input type="text" class="form-control" name="team_name" ng-model="team.stadium.location" placeholder="Enter location here..." required />
+                            </div>
+                            <div class="form-group pull-left">
+                                <input type="text" class="form-control" name="capacity" ng-model="team.stadium.capacity" placeholder="Enter capacity here..." required>
+                            </div>
+                            <div class="form-group pull-left">
+                                <div id="imagePreview" style="line-height:0;" ng-show="team.stadium.image">
+                                    <img class="disp2" style="width: 100%; height: 100%;"> 
+                                    <img style="display:none;" ngf-thumbnail="team.stadium.image" class="thumb disp2a"> 
+                                </div>
+                                <div class="fileUpload btn btn-primary pull-right">
+                                    <span>Upload</span>
+                                    <input type="file" id="upload2" ngf-select ng-model="team.stadium.image" name="upd2"    
+                                    accept="image/*" ngf-max-size="2MB"
+                                    ngf-model-invalid="errorFile" class="upload">
+                                </div>
+                            </div>
+
+                            <div class="form-group pull-left">
+                                <input type="submit" ng-disabled="!myForm.$valid" ng-click="action=='add'?AddTeam(team.logo, team.stadium.image):UpdateTeam(team.logo, team.stadium.image)" name="add-team" value="{{_id=='0'?'Add':'Update'}} Team" class="btn btn-info pull-right"/>
+                                <!--<input type="submit" ng-disabled="!myForm.$valid" ng-show="action=='update'" ng-click="" name="add-team" value="Update Team" class="btn btn-info pull-right"/>-->
+                            </div>
+
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+
+                </div>
+                
+                </form>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).on("change", "input[type=file]#upload1", function(){
+        setTimeout(function(){
+             $("img.disp1").attr("src", $("img.disp1a").attr("src"));
+        },50)
+    })
+    
+    $(document).on("change", "input[type=file]#upload2", function(){
+        setTimeout(function(){
+             $("img.disp2").attr("src", $("img.disp2a").attr("src"));
+        },50)
+    })
+</script>

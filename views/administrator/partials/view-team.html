@@ -1,0 +1,92 @@
+﻿<div class="container">
+    <div class="row">
+        <div class="adminWrapper">
+            
+
+            <div class="col-md-12" id="wrapper_container">
+                <div class="header-wrapper">
+                    <h3 class="ts-heading">ARKANSAS ATTACK</h3>
+                    <div class="clear"></div>
+                    <hr class="ts-line">
+                </div>
+
+                <div class="text-center" ng-show="!team"><i class="fa fa-spinner fa-pulse"></i></div>
+                <div class="col-md-12" id="wrapper-data" ng-init="getOneTeam()">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="logo_wrapper">
+                                <img style="height:100%;" src="{{team.imgurl}}" class="logo" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <span class="pull-right">Team Name:</span>
+                                    <div class="clear"></div>
+                                </div>
+                                <div class="form-group">
+                                    <span class="pull-right">City:</span>
+                                    <div class="clear"></div>
+                                </div>
+                                <div class="form-group">
+                                    <span class="pull-right">Home Stadium:</span>
+                                    <div class="clear"></div>
+                                </div>
+                                <div class="form-group">
+                                    <span class="pull-right">Capacity:</span>
+                                    <div class="clear"></div>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <span class="pull-left data">{{team.nickname}}</span>
+                                    <div class="clear"></div>
+                                </div>
+                                <div class="form-group">
+                                    <span class="pull-left data">{{team.name}}</span>
+                                    <div class="clear"></div>
+                                </div>
+                                <div class="form-group">
+                                    <span class="pull-left data">{{team.stadium.name}}</span>
+                                    <div class="clear"></div>
+                                </div>
+                                <div class="form-group">
+                                    <span class="pull-left data">{{team.stadium.capacity}}</span>
+                                    <div class="clear"></div>
+                                </div>
+
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="col-md-3 wrapper-goto-list pull-right">
+                            <a href="{{isadmin?'/account/dashboard/':'/teams'}}" class="btn btn-primary">Go To Team List</a>
+                        </div>
+
+                        <div class="clear"></div>
+
+                        <div ng-show="isadmin" class="col-md-3 edit-button-wrapper">
+                            <a href="/account/dashboard/teams/{{team._id}}/true" class="btn btn-primary">edit</a>
+                        </div>
+                        <div ng-show="isadmin" class="col-md-9 go-to-schedule">
+                            <a href="#" class="btn btn-primary">go to schedule</a>
+                        </div>
+
+                        <div class="col-md-12 before-floor-plan-wrapper">
+                             <h3 class="stadium-floor-plan-title">Stadium Floor Plan</h3>
+                        </div>
+
+                        <div class="col-md-12 wrapper-floor-plan">
+                            <img src="{{team.stadium.image}}" class="floor-plan-graph" />
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+

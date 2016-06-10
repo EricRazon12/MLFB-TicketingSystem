@@ -1,0 +1,82 @@
+// -----------------------------------------------------------------------------
+// This file contains styles that are specific to the home page.
+// -----------------------------------------------------------------------------
+
+@import "../utils/variables";
+
+h3 {
+    &.ts-head-sched {
+        background: #111;
+        color: #fff;
+        padding: 7px 25px;
+        margin-bottom: 35px;
+    }
+}
+
+.schedules, .team-game-sched {
+    .ts-heading {
+        padding: 7px 40px;
+    }
+
+    .row {
+        margin: 0;
+
+        .ts-main {
+            padding-left: 0;
+
+            .ts-week {
+                &-group {
+                }
+
+                &-game {
+                    &-list {
+                        padding: 25px;
+                        border-bottom: 1px solid #c3c4c4;
+
+                        &:last-child {
+                            border-bottom: none;
+                        }
+
+                        p {
+                            margin: 0;
+                            font-weight: 700;
+                            font-size: 16px;
+                        }
+
+                        small {
+                            font-size: 90%;
+
+                            &.ts-game-court {
+                                text-transform: uppercase;
+                                margin-right: 15px;
+                            }
+
+                            &.ts-game-loc {
+                                text-transform: uppercase;
+                                margin-left: 15px;
+                            }
+                        }
+
+                        a {
+                            display: inline-block;
+                            float: right;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.game {
+    .team-banner {
+        background: url('../assets/images/team-sched-bg.png') no-repeat center center;
+        background-size: cover;
+        padding: 25px;
+
+        h2 {
+            color: #fff;
+            font-weight: 700;
+        }
+    }
+}
