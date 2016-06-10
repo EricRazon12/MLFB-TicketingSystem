@@ -30,6 +30,22 @@ router.get('/', function (req, res, next) {
     });    
 });
 
+//*** /api/teams/stadiums
+router.get('/stadiums', function (req, res, next) {
+    db.collection('teams').find().toArray(function(err, result) {
+        if (err){ 
+            res.status(500).send(err.message);
+            return;
+        }
+        var stadiums = [];
+        for (var x = 0; x < result.length; x++) {
+            result[x].stadium.team = result[x].name + ' ' + result[x].nickname;
+            stadiums.push(result[x].stadium);
+        } 
+        res.send(stadiums);
+    });    
+});
+
 router.get('/:_id', function (req, res, next) {
     var _id = new mongo.ObjectID(req.params._id);
     if(req.query.isadmin == 'true'){
@@ -61,21 +77,7 @@ router.get('/:_id', function (req, res, next) {
     } 
 });
 
-//*** /api/teams/stadiums
-router.get('/stadiums', function (req, res, next) {
-    db.collection('teams').find().toArray(function(err, result) {
-        if (err){ 
-            res.status(500).send(err.message);
-            return;
-        }
-        var stadiums = [];
-        for (var x = 0; x < result.length; x++) {
-            result[x].stadium.team = result[x].name + ' ' + result[x].nickname;
-            stadiums.push(result[x].stadium);
-        } 
-        res.send(stadiums);
-    });    
-});
+
 
 //*** /api/teams/add
 router.post('/add', function (req, res, next) {
