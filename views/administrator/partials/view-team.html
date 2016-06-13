@@ -2,15 +2,15 @@
     <div class="row">
         <div class="adminWrapper">
             
-
-            <div class="col-md-12" id="wrapper_container">
+            <div class="text-center" ng-show="!team"><i class="fa fa-spinner fa-pulse"></i></div>
+            <div class="col-md-12" id="wrapper_container" ng-show="team">
                 <div class="header-wrapper">
-                    <h3 class="ts-heading">ARKANSAS ATTACK</h3>
+                    <h3 class="ts-heading">{{team.name | uppercase}} {{team.nickname | uppercase}}</h3>
                     <div class="clear"></div>
                     <hr class="ts-line">
                 </div>
 
-                <div class="text-center" ng-show="!team"><i class="fa fa-spinner fa-pulse"></i></div>
+               
                 <div class="col-md-12" ng-show="team" id="wrapper-data" ng-init="getOneTeam()">
                     <div class="row">
                         <div class="col-md-3">

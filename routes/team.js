@@ -42,7 +42,7 @@ router.get('/stadiums', function (req, res, next) {
             result[x].stadium.team = result[x].name + ' ' + result[x].nickname;
             stadiums.push(result[x].stadium);
         } 
-        res.send(stadiums);
+        res.status(200).send(stadiums);
     });    
 });
 

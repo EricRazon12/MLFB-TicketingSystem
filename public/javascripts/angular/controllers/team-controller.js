@@ -33,15 +33,6 @@ app.controller("team-controller", function($scope, Page, teamfactory, Upload, $t
        }
    }
    
-   $scope.getStadiums = function () {
-       teamfactory.requestStadiums()
-       .success(function (data) {
-           $scope.stadiums = data;
-       })
-       .error(function (data) {
-
-       });
-   }
    
       $scope.AddTeam = function(file, file2) {
         Upload.upload({

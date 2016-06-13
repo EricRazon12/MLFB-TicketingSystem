@@ -2,9 +2,9 @@
         <div class="container">
             <h3 class="ts-heading">MLFB FOOTBALL STADIUMS</h3>
             <hr class="ts-line" />
-
-            <div class="row">
-                    <div class="col-md-9 ts-main" ng-controller="team-controller" ng-init="getStadiums()" >
+            <div class="text-center" ng-show="!stadiums"><i class="fa fa-spinner fa-pulse"></i></div>
+            <div class="row" ng-show="stadiums">
+                    <div class="col-md-9 ts-main" ng-init="getStadiums()" >
                         <div class="row ts-venue" ng-repeat="stadium in stadiums">
                             <div class="col-md-6">
                                 <div class="ts-venue-handler">
