@@ -1,4 +1,11 @@
 var app = angular.module('ticketing-filter', []);
+
+app.filter('formatDate', function(){
+    return function(input){
+        return new Date(input);
+    }
+})
+
 app.filter('slashToDash', function () {
     return function (input) {
     	input = input || ''
