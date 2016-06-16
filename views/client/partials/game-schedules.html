@@ -5,7 +5,7 @@
 
             <div class="row">
                 <div class="col-md-9 ts-main">
-                    <div class="ts-week" ng-repeat="(key, value) in schedules | groupBy:'week'">
+                    <div class="ts-week" ng-repeat="(key, value) in schedule.list | groupBy:'week'">
                         <div class="ts-week-group">
                             <div class="ts-week-game">
                                 <h3 class="ts-head-sched">Week {{key}}</h3>
@@ -31,3 +31,5 @@
             </div>
         </div>
     </section>
+    
+ 

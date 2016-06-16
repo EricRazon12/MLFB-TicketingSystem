@@ -29,6 +29,69 @@ server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
 
+var io = require('socket.io').listen(server);
+
+//*****io.sockets -> from server to client & connection
+//*****socket -> from client to server
+
+// io.sockets.on('connection', function (socket) {
+//   socket.on("update-schedules", function () {
+//     socket.emit("update-schedules1");
+//   });
+  
+io.on('connection', function (socket) {
+   
+  socket.on('update-schedules', function (data) {
+    //data = JSON.parse(data);
+    // var static = data.static;
+    // var team1 = data.selected.team1;
+    // var team2 = data.selected.team2;
+    // var stadium = data.selected.stadium;
+    // var sched = {
+    //   _id: static._id,
+    //   datetime: static.date + ' ' + static.time,
+    //   stadium:{
+    //     capacity: stadium.capacity,
+    //     image: stadium.image,
+    //     location: stadium.location,
+    //     name: stadium.name
+    //   },
+    //   teams:[
+    //     {
+    //       imgurl: team1.imgurl,
+    //       name: team1.name,
+    //       nickname: team1.nickname,
+    //       stadium:{
+    //         capacity: team1.capacity,
+    //         image: team1.image,
+    //         location: team1.location,
+    //         name: team1.name}
+    //     },
+    //     {
+    //       imgurl: team2.imgurl,
+    //       name: team2.name,
+    //       nickname: team2.nickname,
+    //       stadium:{
+    //         capacity: team2.capacity,
+    //         image: team2.image,
+    //         location: team2.location,
+    //         name: team2.name}
+    //     }
+    //   ],
+    //   week: static.week
+    // }
+    io.emit("update-schedules", data);
+  });
+  
+  socket.on('disconnect', function () {
+    io.emit('user disconnected');
+  });
+});
+  
+  
+// });
+
+
 /**
  * Normalize a port into a number, string, or false.
  */

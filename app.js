@@ -33,6 +33,13 @@ app.use(express.static(path.join(__dirname, 'views')));
  app.use('/api/schedule', schedule);
 // app.use('/users', users);
 
+// app.use(function(req, res){
+//   res.statusCode = 200;
+// //...
+//   res.setHeader("Access-Control-Allow-Origin", "*");
+//   res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+// })
+
 app.get('/*', function (req, res) {
     res.sendFile(__dirname + '/views/client/layout.html');
 });

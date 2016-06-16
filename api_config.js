@@ -5,7 +5,7 @@ var crypto = require('crypto'),
 
 
 module.exports = {
-  getMongoDB: require('mongoskin').db('mongodb://10.9.1.133:27017/TicketingSystem'), // 'mongodb://or_people:orpwd@ds023303.mlab.com:23303/ticketing_system'), //
+  getMongoDB: require('mongoskin').db('mongodb://or_people:orpwd@ds023303.mlab.com:23303/ticketing_system'), //'mongodb://10.9.1.133:27017/TicketingSystem'), // 
   loc: __dirname,
   encrypt: function(text){
             var cipher = crypto.createCipher(algorithm,password)
