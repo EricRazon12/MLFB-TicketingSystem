@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require("express-session");
 
-
+var ticketing = require('./routes/ticketing');
 var account = require('./routes/account');
 var team = require('./routes/team');
 var schedule = require('./routes/schedule');
@@ -27,6 +27,7 @@ app.use(session({resave: true, saveUninitialized: true, secret: 'orts20160523', 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'views')));
 
+ app.use('/', ticketing);
  app.use('/account', account);
  app.use('/api/teams', team);
  app.use('/api/schedule', schedule);

@@ -18,41 +18,57 @@ router.get('/', function (req, res, next) {
                 res.send(schedule);
             });
         }else{
-            var data = [];
-            var sat, sun, mon, c=0;
-            var datainweek = [];
-            var daysinweek = [];
-            for(var i=0; i<result.length; i++){
-               
-                if(new Date(result[i].datetime).getDay() == 6){
-                    sat = new Date(new Date(result[i].datetime).setDate(new Date(result[i].datetime).getDate()));
-                    sun = new Date(new Date(result[i].datetime).setDate(new Date(result[i].datetime).getDate() + 1));
-                    mon = new Date(new Date(result[i].datetime).setDate(new Date(result[i].datetime).getDate() + 2));
-                    daysinweek.push(sat);
-                    daysinweek.push(sun);
-                    daysinweek.push(mon);
-                }
-                for(var x = 0; x < daysinweek.length; x++){
-                        if(daysinweek[x].getDate() == new Date(result[i].datetime).getDate()){
-                                if(datainweek.indexOf(result[i]) == -1){
-                                    datainweek.push(result[i]);
-                                }
-                            //console.log(datainweek);
-                        }
-                        if(x == (daysinweek.length - 1) && daysinweek[2].getDate() == new Date(result[i].datetime).getDate()){
-                            data.push(datainweek);
-                            datainweek = [];
-                            daysinweek = [];
-                        }
-                }
-            }
-            
-            
-            // console.log(data);
-             res.send(data);
+            res.send(result);
         }
-    });
+    }); 
+});
 
+router.post('/add', function (req, res, next) {
+    var team1 = JSON.parse(req.query.team1);
+    var team2 = JSON.parse(req.query.team2);
+    var stadium = JSON.parse(req.query.stadium);
+    
+     var sched  =  {
+            "teams" : [ 
+                        {
+                            "name" : team1.name,
+                            "nickname" : team1.nickname,
+                            "imgurl" : team1.imgurl,
+                            "stadium" : {
+                                "name" : team1.stadium.name,
+                                "location" : team1.stadium.location,
+                                "capacity" : team1.stadium.capacity,
+                                "image" : team1.stadium.image
+                            }
+                        }, 
+                        {
+                            "name" : team2.name,
+                            "nickname" : team2.nickname,
+                            "imgurl" : team2.imgurl,
+                            "stadium" : {
+                                "name" : team2.stadium.name,
+                                "location" : team2.stadium.location,
+                                "capacity" : team2.stadium.capacity,
+                                "image" : team2.stadium.image
+                            }
+                        }
+                    ],
+                    "datetime" :  req.query.date + ' ' + req.query.time,
+                    "week": req.query.week,
+                    "stadium" : {
+                        "name" : stadium.name,
+                        "location" : stadium.location,
+                        "capacity" : stadium.capacity,
+                        "image" : stadium.image
+                    }
+                };
+    
+    
+     db.collection('schedule').insert(sched, function(err, result){
+                if(!err)
+                   console.log("error");
+                console.log(result);
+            })   
     
 });
 

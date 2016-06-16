@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="row">
+            <div class="adminWrapper">
+                <div>Add Schedule</div>
+
+                <div>
+                    Week <input type="text" ng-model="schedule.static.week">
+                </div>
+                <div ng-controller="team-controller" ng-init="getTeams()">
+                    Team 1
+                    <select class="form-control" id="contacttype" ng-model="schedule.selected.team1" 
+                    ng-options="team.name + ' ' + team.nickname for team in teams"></select>
+                    Team 2
+                    <select class="form-control" id="contacttype" ng-model="schedule.selected.team2" 
+                    ng-options="team.name + ' ' + team.nickname for team in teams"></select>
+                </div>
+                <div ng-controller="stadium-controller" ng-init="getStadiums()">
+                    Stadium
+                    <select class="form-control" id="contacttype" ng-model="schedule.selected.stadium" 
+                     ng-options="stadium.name for stadium in stadiums"></select>
+                </div>
+                <div>
+                    date: <input type="text" ng-model="schedule.static.date" >
+                    Time: <input type="text" ng-model="schedule.static.time">
+                </div>
+                <button ng-click="AddSchedule()">Save</button>
+            </div>
+      </div>
+</div>

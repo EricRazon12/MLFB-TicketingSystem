@@ -40,6 +40,7 @@ router.get('/stadiums', function (req, res, next) {
         var stadiums = [];
         for (var x = 0; x < result.length; x++) {
             result[x].stadium.team = result[x].name + ' ' + result[x].nickname;
+            result[x].stadium.teamid = result[x]._id;
             stadiums.push(result[x].stadium);
         } 
         res.status(200).send(stadiums);

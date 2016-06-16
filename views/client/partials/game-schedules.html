@@ -5,18 +5,18 @@
 
             <div class="row">
                 <div class="col-md-9 ts-main">
-                    <div class="ts-week" ng-repeat="sched in schedules">
+                    <div class="ts-week" ng-repeat="(key, value) in schedules | groupBy:'week'">
                         <div class="ts-week-group">
                             <div class="ts-week-game">
-                                <h3 class="ts-head-sched">Week {{$index + 1}}</h3>
-                                <div class="row ts-week-game-list" ng-repeat="game in sched">
+                                <h3 class="ts-head-sched">Week {{key}}</h3>
+                                <div class="row ts-week-game-list" ng-repeat="game in value | formatDateFromListSchedule | orderBy:'datetime'">
                                     <div class="col-md-3">
-                                        <p>{{game.datetime | formatDate | date: 'MMM' | uppercase}} {{game.datetime | formatDate | date: 'dd'}}</p>
-                                        <small>{{game.datetime | formatDate | date: 'EEE'}} {{game.datetime | formatDate | date: 'hh'}}:{{game.datetime | formatDate | date: 'mm'}} {{game.datetime | formatDate | date: 'a'}}</small>
+                                        <p>{{game.datetime | date: 'MMM' | uppercase}} {{game.datetime | date: 'dd'}}</p>
+                                        <small>{{game.datetime | date: 'EEE'}} {{game.datetime | date: 'hh'}}:{{game.datetime | date: 'mm'}} {{game.datetime | date: 'a'}}</small>
                                     </div>
                                     <div class="col-md-6">
                                         <p>{{game.teams[0].name | uppercase}} {{game.teams[0].nickname | uppercase}} VS {{game.teams[1].name | uppercase}} {{game.teams[1].nickname | uppercase}}</p>
-                                        <small>{{game.stadium.name | titlecase}}, {{game.teams[1].name | titlecase}}</small>
+                                        <small>{{game.stadium.name | titlecase}}, {{game.stadium.location | titlecase}}</small>
                                     </div>
                                     <div class="col-md-3">
                                         <a href="#" class="ts-btn">Buy Tickets</a>

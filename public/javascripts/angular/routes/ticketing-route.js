@@ -18,6 +18,7 @@ app.config(function($routeProvider, $locationProvider){
 	.when('/account/dashboard/teams/:_id/:isadmin', {templateUrl: '/administrator/partials/add-team.html', controller: 'team-controller'})
 	//.when('/account/dashboard/teams/:action', {templateUrl: '/administrator/partials/add-team.html', controller: 'team-controller'})
     .when('/account/dashboard/schedules', { templateUrl: '/administrator/partials/view-all-schedule.html' })
+	.when('/account/dashboard/schedules/add', { templateUrl: '/administrator/partials/add-schedule.html', controller: 'schedules-controller' } )
 	.when('/account/dashboard/teams/view/:_id/:isadmin', {templateUrl: '/administrator/partials/view-team.html', controller: 'team-controller'})
 	.otherwise({ redirectTo: '/' })
 	

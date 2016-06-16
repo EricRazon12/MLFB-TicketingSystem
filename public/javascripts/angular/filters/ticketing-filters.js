@@ -50,3 +50,14 @@ app.filter('titlecase', function() {
         });
     }
 });
+
+
+app.filter('formatDateFromListSchedule', function($filter){
+    return function(input){
+        input = input || '';
+        for(var x = 0; x < input.length; x++){
+            input[x].datetime = new Date(input[x].datetime);
+        }
+        return input;
+    }
+})
