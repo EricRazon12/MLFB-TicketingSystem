@@ -9,10 +9,18 @@ $(document).ready(function () {
     var stadSum = stadH - 163;
 
     $('.ts-tick-handler').css('height', stadSum + "px")
-    
 
     //Stadium Mapping Code
-    $('.ts-tick-results').hide();
+    $('.ts-tick-results').find('.row').hide();
+
+    var areaSec = $.map($('area[section]'), function (el) {
+        var secAttr = $(el).attr('section')
+        //var imgAttr = "<img src='" + $(el).attr('imgView') + "'/>";
+        return {
+            key: secAttr,
+            toolTip: "<p>Section <b>" + secAttr + "</b>" + "</p><p<span>50 Tickets</span> Available from $10.00 to $300.00</p>",
+        };
+    });
 
     var image = $('#stad');
     $(image).mapster({
@@ -22,25 +30,31 @@ $(document).ready(function () {
         strokeColor: "111",
         strokeOpacity: 0.8,
         strokeWidth: 0.5,
+        showToolTip: true,
+        singleSelect: true,
+        areas: areaSec,
         mapKey: 'section',
         listKey: 'section',
+        toolTipContainer: '<div class="ts-tooltip"></div>',
         render_highlight: {
             fillColor: '1767b3',
             strokeWidth: 0.5
         },
+
         onClick: function (e) {
+
+            $('.ts-tick-view').html("<h4>Section " + e.key + "</h4>" + "<a class=img-pop href=#><img class=img-responsive src='" + $(this).attr('imgView') + "'/></a>");
+
             $('.ts-tick-results').each(function () {
-                var sec = $(this).find('.ts-sect').text();
-                if (e.key === sec) {
-                    if (!e.selected) {
-                        $(this).fadeOut(500);
+                var sec = $(this).attr('data-sec');
+                $(this).find('.row').each(function () {
+                    if (e.key === sec) {
+                        $(this).show('slide', { direction: 'right' }, 500).css('height', '100%', 'overflow', 'hidden');
                     } else {
-                        $(this).fadeIn(500);
+                        $(this).hide('slide', { direction: 'right' }, 500).css('height', '100%', 'overflow', 'hidden');
                     }
-
-                }
+                })
             })
-
         },
     });
 
@@ -100,6 +114,8 @@ $(document).ready(function () {
     $('.ui-slider-handle:eq(0)').append('<span class="price-range-min value">$' + $('#slider').slider('values', 0) + '</span>');
 
     $('.ui-slider-handle:eq(1)').append('<span class="price-range-max value">$' + $('#slider').slider('values', 1) + '</span>');
+
+
 
 
 })
