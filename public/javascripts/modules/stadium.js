@@ -6,7 +6,7 @@ $(window).load(function () {
 $(document).ready(function () {
 
     var stadH = $('.ts-stadium .ts-main').height();
-    var stadSum = stadH - 163;
+    var stadSum = stadH - 263;
 
     $('.ts-tick-handler').css('height', stadSum + "px")
 

@@ -3,13 +3,16 @@
 // -----------------------------------------------------------------------------
 
 @import "../utils/variables";
+@import "../utils/mixins";
 
 section {
     &.ts-search {
         background: url('../assets/images/search-bg.jpg') no-repeat center center;
         background-size: cover;
         padding: 50px;
+         @include respond-to(xs){
 
+         }
         h1 {
             color: $text-color-white;
             font-size: 70px;
@@ -112,4 +115,34 @@ section {
             }
         }
     }
+}
+
+
+
+
+@media only screen and (min-width:480px) and (max-width:767px){
+.holder-content .content .ts-search
+}
+
+
+@media only screen and (max-width:768px){
+
+}
+
+@media only screen and (min-width:768px) and (max-width:991px){
+
+}
+
+@media only screen and (min-width:992px) and (max-width:1199px){
+
+
+}
+
+@media only screen and (min-width:1200px) and (max-width:1600px){
+
+
+}
+
+@media only screen and (max-width:1601px){
+
 }

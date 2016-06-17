@@ -6599,6 +6599,8 @@ header .ts-top-bar {
       .container .row .adminWrapper #create-team .container .row .wrapper_data .col-md-2 .wrapper_result span {
         display: block; }
   .holder-content .content .container .row .adminWrapper #create-team form .container .row .col-md-offset-2 {
+    display: none; }
+  .holder-content .content .container .row .adminWrapper #wrapper_container #wrapper-title {
     display: none; } }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
